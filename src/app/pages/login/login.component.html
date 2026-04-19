@@ -1,1 +1,36 @@
-<h2>Login Page</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <h2>Login</h2>
+
+  <input
+    type="email"
+    formControlName="email"
+    placeholder="Email"
+  />
+
+  <div *ngIf="form.get('email')?.touched && form.get('email')?.invalid">
+    <small *ngIf="form.get('email')?.errors?.['required']">
+      Email is required
+    </small>
+    <small *ngIf="form.get('email')?.errors?.['email']">
+      Invalid email format
+    </small>
+  </div>
+
+  <input
+    type="password"
+    formControlName="password"
+    placeholder="Password"
+  />
+
+  <div *ngIf="form.get('password')?.touched && form.get('password')?.invalid">
+    <small>Password is required</small>
+  </div>
+
+  <button type="submit" [disabled]="isLoading">
+    {{ isLoading ? 'Logging in...' : 'Login' }}
+  </button>
+
+  <p *ngIf="errorMessage">{{ errorMessage }}</p>
+
+</form>
