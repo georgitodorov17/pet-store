@@ -4,7 +4,7 @@
 
   <ng-container *ngIf="user$ | async as user; else guest">
     <a routerLink="/dashboard">Dashboard</a>
-    <a routerLink="/create">Create Pet</a>
+    <a routerLink="/create">Add Pet</a>
     <button (click)="logout()">Logout</button>
   </ng-container>
 

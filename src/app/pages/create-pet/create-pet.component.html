@@ -1,14 +1,44 @@
-<h2>Create Pet</h2>
+<h2>Add Pet</h2>
 
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
+  <label>Name</label>
   <input formControlName="name" placeholder="Name">
-  <input formControlName="type" placeholder="Type">
-  <input type="number" formControlName="age">
-  <input formControlName="imageUrl" placeholder="Image URL">
-  <textarea formControlName="description"></textarea>
+  <div *ngIf="form.get('name')?.touched && form.get('name')?.invalid">
+    <small>Name is required</small>
+  </div>
 
-  <button type="submit">Create</button>
+  <label>Type</label>
+  <input formControlName="type" placeholder="Type">
+  <div *ngIf="form.get('type')?.touched && form.get('type')?.invalid">
+    <small>Type is required</small>
+  </div>
+
+  <label>Age</label>
+  <input type="number" formControlName="age" placeholder="Age">
+  <div *ngIf="form.get('age')?.touched && form.get('age')?.invalid">
+    <small>Age is required</small>
+  </div>
+
+  <label>Image URL</label>
+  <input formControlName="imageUrl" placeholder="Image URL">
+
+  <img *ngIf="form.value.imageUrl"
+       [src]="form.value.imageUrl"
+       width="120"
+       style="margin:10px 0; border-radius:8px;">
+
+  <div *ngIf="form.get('imageUrl')?.touched && form.get('imageUrl')?.invalid">
+    <small>Image URL is required</small>
+  </div>
+
+  <label>Description</label>
+  <textarea formControlName="description" placeholder="Description"></textarea>
+  <div *ngIf="form.get('description')?.touched && form.get('description')?.invalid">
+    <small>Description is required</small>
+  </div>
+
+  <button type="submit">Add</button>
 
   <p *ngIf="errorMessage">{{ errorMessage }}</p>
 
