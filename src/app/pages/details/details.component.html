@@ -1,1 +1,15 @@
-<h2>Details Page</h2>
+<div *ngIf="pet">
+
+  <h2>{{ pet.name }}</h2>
+  <img [src]="pet.imageUrl" width="200">
+
+  <p>{{ pet.type }}</p>
+  <p>{{ pet.age }} years old</p>
+  <p>{{ pet.description }}</p>
+
+  <div *ngIf="isOwner">
+    <a [routerLink]="['/edit', pet.id]">Edit</a>
+    <button (click)="deletePet()">Delete</button>
+  </div>
+
+</div>
