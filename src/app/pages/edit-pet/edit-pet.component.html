@@ -1,0 +1,34 @@
+<h2>Edit Pet</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <input formControlName="name" placeholder="Name">
+  <div *ngIf="form.get('name')?.touched && form.get('name')?.invalid">
+    <small>Name is required</small>
+  </div>
+
+  <input formControlName="type" placeholder="Type">
+  <div *ngIf="form.get('type')?.touched && form.get('type')?.invalid">
+    <small>Type is required</small>
+  </div>
+
+  <input type="number" formControlName="age">
+  <div *ngIf="form.get('age')?.touched && form.get('age')?.invalid">
+    <small>Age is required</small>
+  </div>
+
+  <input formControlName="imageUrl" placeholder="Image URL">
+  <div *ngIf="form.get('imageUrl')?.touched && form.get('imageUrl')?.invalid">
+    <small>Image URL is required</small>
+  </div>
+
+  <textarea formControlName="description" placeholder="Description"></textarea>
+  <div *ngIf="form.get('description')?.touched && form.get('description')?.invalid">
+    <small>Description is required</small>
+  </div>
+
+  <button type="submit">Save Changes</button>
+
+  <p *ngIf="errorMessage">{{ errorMessage }}</p>
+
+</form>
