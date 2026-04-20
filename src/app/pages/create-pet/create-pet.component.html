@@ -1,0 +1,15 @@
+<h2>Create Pet</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <input formControlName="name" placeholder="Name">
+  <input formControlName="type" placeholder="Type">
+  <input type="number" formControlName="age">
+  <input formControlName="imageUrl" placeholder="Image URL">
+  <textarea formControlName="description"></textarea>
+
+  <button type="submit">Create</button>
+
+  <p *ngIf="errorMessage">{{ errorMessage }}</p>
+
+</form>
