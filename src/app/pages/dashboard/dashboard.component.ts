@@ -4,11 +4,12 @@ import { AuthService } from '../../services/auth.service';
 import { Observable, map , switchMap} from 'rxjs';
 import { Pet } from '../../models/pet.model';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
