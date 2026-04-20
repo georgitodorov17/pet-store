@@ -6,6 +6,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { EditPetComponent } from './pages/edit-pet/edit-pet.component';
+import { CreatePetComponent } from './pages/create-pet/create-pet.component';
 import { authGuard } from './guards/auth.guard';
 import { guestGuard } from './guards/guest.guard';
 
@@ -16,5 +17,6 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [guestGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [guestGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
-  { path: 'edit/:id', component: EditPetComponent, canActivate: [authGuard] }
+  { path: 'edit/:id', component: EditPetComponent, canActivate: [authGuard] },
+  { path: 'create', component: CreatePetComponent, canActivate: [authGuard] }
 ];

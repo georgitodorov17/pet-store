@@ -41,9 +41,20 @@ export class CreatePetComponent {
         ownerId: user.uid
       };
 
-      this.petService.addPet(pet as any)
-        .then(() => this.router.navigate(['/catalog']))
-        .catch(err => this.errorMessage = err.message);
+      const formValue = this.form.value;
+
+const newPet = {
+  name: formValue.name ?? '',
+  type: formValue.type ?? '',
+  age: formValue.age ?? 0,
+  imageUrl: formValue.imageUrl ?? '',
+  description: formValue.description ?? '',
+  ownerId: user.uid
+};
+
+this.petService.addPet(newPet)
+  .then(() => this.router.navigate(['/catalog']))
+  .catch(err => this.errorMessage = err.message);
     });
   }
 }
