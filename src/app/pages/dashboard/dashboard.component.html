@@ -1,21 +1,55 @@
-<h2>My Pets</h2>
+<div class="page">
 
-<div *ngIf="pets$ | async as pets; else loading">
+  <h2>My Pets</h2>
 
-  <div *ngIf="pets.length === 0">
-    <p>You have not added any pets yet.</p>
+  <div *ngIf="pets$ | async as pets; else loading" class="grid">
+
+    <div *ngIf="pets.length === 0" class="empty">
+      <p>You have no pets yet.</p>
+    </div>
+
+    <div *ngFor="let pet of pets" class="card">
+
+      <img [src]="pet.imageUrl" alt="pet image">
+
+      <h3>{{ pet.name }}</h3>
+      <p>{{ pet.type }} • {{ pet.age }} years old</p>
+
+      <a [routerLink]="['/pets', pet.id]" class="btn">Details</a>
+
+    </div>
+
   </div>
 
-  <div *ngFor="let pet of pets">
-    <h3>{{ pet.name }}</h3>
-    <img [src]="pet.imageUrl" width="150">
-    <p>{{ pet.type }} - {{ pet.age }} years old</p>
-
-    <a [routerLink]="['/pets', pet.id]">Details</a>
-  </div>
+  <ng-template #loading>
+    <p class="loading">Loading...</p>
+  </ng-template>
 
 </div>
 
-<ng-template #loading>
-  <p>Loading your pets...</p>
-</ng-template>
+<style>
+
+  .card img {
+  width: 60%;
+  height: 180px;
+  object-fit: cover;
+}
+  .card{
+box-shadow: 20px;
+display: inline-block;
+width: 33%;
+}
+  h2 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+div {
+  text-align: center;
+}
+
+img {
+  margin: 10px 0;
+  border-radius: 8px;
+}
+</style>

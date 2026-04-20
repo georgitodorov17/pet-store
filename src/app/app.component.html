@@ -1,17 +1,28 @@
-<nav>
-  <a routerLink="/">Home</a>
-  <a routerLink="/catalog">Catalog</a>
+<nav class="navbar">
 
-  <ng-container *ngIf="user$ | async as user; else guest">
-    <a routerLink="/dashboard">Dashboard</a>
-    <a routerLink="/create">Add Pet</a>
-    <button (click)="logout()">Logout</button>
-  </ng-container>
+  <div class="nav-left">
+    <a routerLink="/">Home</a>
+    <a routerLink="/catalog">Catalog</a>
+  </div>
 
-  <ng-template #guest>
-    <a routerLink="/login">Login</a>
-    <a routerLink="/register">Register</a>
-  </ng-template>
+  <div class="nav-right">
+
+    <ng-container *ngIf="user$ | async as user; else guest">
+
+      <a routerLink="/dashboard">Dashboard</a>
+      <a routerLink="/create">Add Pet</a>
+
+      <button (click)="logout()">Logout</button>
+
+    </ng-container>
+
+    <ng-template #guest>
+      <a routerLink="/login">Login</a>
+      <a routerLink="/register">Register</a>
+    </ng-template>
+
+  </div>
+
 </nav>
 
 <router-outlet></router-outlet>

@@ -8,8 +8,54 @@
   <p>{{ pet.description }}</p>
 
   <div *ngIf="isOwner">
-    <a [routerLink]="['/edit', pet.id]">Edit</a>
-    <button (click)="deletePet()">Delete</button>
+    <a [routerLink]="['/edit', pet.id]" class="btn">Edit</a>
+    <button class="btn btn-danger" (click)="deletePet()">Delete</button>
   </div>
 
 </div>
+
+<style>
+  body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f5f5f5;
+}
+
+h2 {
+  color: #333;
+}
+
+
+.btn.secondary {
+  background-color: #777;
+}
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: 0.2s ease-in-out;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #555;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: #777;
+}
+
+.btn-danger {
+  background-color: #c0392b;
+}
+
+.btn-danger:hover {
+  background-color: #e74c3c;
+}
+</style>

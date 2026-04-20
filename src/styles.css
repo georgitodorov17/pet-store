@@ -8,13 +8,36 @@ h2 {
   color: #333;
 }
 
-.btn {
-  padding: 10px 20px;
-  background-color: #333;
-  color: white;
-  text-decoration: none;
-}
 
 .btn.secondary {
   background-color: #777;
+}
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: 0.2s ease-in-out;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #555;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: #777;
+}
+
+.btn-danger {
+  background-color: #c0392b;
+}
+
+.btn-danger:hover {
+  background-color: #e74c3c;
 }
