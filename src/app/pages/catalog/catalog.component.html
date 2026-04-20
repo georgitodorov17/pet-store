@@ -1,7 +1,7 @@
 <h2>Pet Catalog</h2>
-
+<div class="topcont">
 <a routerLink="/create" class="btn-top">Add New Pet</a>
-
+</div>
 
 <div *ngIf="pets$ | async as pets; else loading">
 
@@ -26,12 +26,16 @@
 </ng-template>
 
 <style>
+  .topcont{
+    width: 100%;
+    justify-content: center;
+  }
 
   .btn-top {
   display: inline-block;
   text-align: center;
-  margin-left: 46%;
-  width: 8%;
+  margin-left: auto;
+  
   padding: 10px 16px;
   background-color: #333;
   color: white;
