@@ -1,1 +1,21 @@
-<h2>Catalog Page</h2>
+<h2>Pet Catalog</h2>
+
+<div *ngIf="pets$ | async as pets; else loading">
+
+  <div *ngIf="pets.length === 0">
+    <p>No pets available.</p>
+  </div>
+
+  <div *ngFor="let pet of pets">
+    <h3>{{ pet.name }}</h3>
+    <img [src]="pet.imageUrl" width="150">
+    <p>{{ pet.type }} - {{ pet.age }} years old</p>
+
+    <a [routerLink]="['/pets', pet.id]">Details</a>
+  </div>
+
+</div>
+
+<ng-template #loading>
+  <p>Loading pets...</p>
+</ng-template>
